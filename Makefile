@@ -1,6 +1,10 @@
-all: bin/fuzzable1
+TARGETS = \
+	bin/fuzzable1 \
 
-bin/fuzzable1: src/fuzzable1.c
+all: $(TARGETS)
+
+bin/%: src/%.c
+	$(CC) $< -o $@
 
 clean:
 	rm bin/*
